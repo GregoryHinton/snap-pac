@@ -59,6 +59,7 @@ set_defaults() {
 trap error_exit ERR
 trap kill_exit SIGTERM SIGINT
 
+[[ "$pre_or_post" != "pre" ]] && [[ "$pre_or_post" != "post" ]] && die "First argument must be 'pre' or 'post'."
 [[ ! -d /var/run/dbus ]] && die "No dbus available. Are you in a chroot environment?"
 
 source "$SNAPPER_CONFIG_FILE"
